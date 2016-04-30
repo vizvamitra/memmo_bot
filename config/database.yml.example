@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  pool: 5
+  timeout: 5000
+  user: rails
+  password: xxxxx
+
+development:
+  <<: *default
+  database: db_name
+
+test: &test
+  <<: *default
+  database: db_name
+
+production:
+  <<: *default
+  database: db_name
+
+cucumber:
+  <<: *test
