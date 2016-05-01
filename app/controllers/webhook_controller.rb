@@ -31,7 +31,7 @@ class WebhookController < ApplicationController
     @command ||= begin
       command = message.entities.find{|e| e.type == 'bot_command'}
       command_name = command ? command.body : 'add'
-      command_class = "#{command_name.classify}Command".constantize
+      command_class = "#{command_name.camelize.capitalize}Command".constantize
       command_class.new(user, message)
     end
   end

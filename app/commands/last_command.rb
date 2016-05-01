@@ -1,4 +1,4 @@
-class RecentCommand < BaseCommand
+class LastCommand < BaseCommand
   def run
     count = message.text.sub(/^\/[^\s]+\s?/, '').to_i
 
