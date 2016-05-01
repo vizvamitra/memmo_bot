@@ -1,6 +1,6 @@
 class TagsCommand < BaseCommand
   def run
-    response_text = ""
+    response_text = "Existing tags:\n\n"
     grouped_tags = user.tags.order(:name).group_by{|tag| tag.name[0]}
 
     grouped_tags.each do |first_letter, tags|
