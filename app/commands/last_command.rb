@@ -1,6 +1,7 @@
 class LastCommand < BaseCommand
   def run
     count = message.text.sub(/^\/[^\s]+\s?/, '').to_i
+    count = 5 if count == 0
 
     notes = @user.notes.recent.first(count)
     response_text = "Last #{count} notes:\n\n"
