@@ -7,6 +7,7 @@ class HelpCommand < BaseCommand
 
       /add [text] - Create a new note
       Example: /add http://example.com/blah-blah
+      Also you can simply enter any text without a command, I will assume you want to add it as a note
 
       /describe [tags] [name] - Describe last created note
       Example: /describe #url #example Example website
