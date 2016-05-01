@@ -1,7 +1,8 @@
 class TagsCommand < BaseCommand
   def run
     response_text = "Existing tags:\n\n"
-    grouped_tags = user.tags.order(:name).group_by{|tag| tag.name[0]}
+    all_tags = user.tags.select('distinct(tags.name)').order(:name)
+    grouped_tags = all_tags.group_by{|tag| tag.name[0]}
 
     grouped_tags.each do |first_letter, tags|
       response_text << "<strong>#{first_letter.upcase}</strong>\n"
