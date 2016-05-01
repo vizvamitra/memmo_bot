@@ -1,10 +1,9 @@
-class LastCommand < BaseCommand
+class GetCommand < BaseCommand
   def run
-    count = message.text.sub(/^\/[^\s]+\s?/, '').to_i
-    count = 5 if count == 0
+    tags = message.entities.hashtags.map(&:body)
+    notes = user.notes.recent.joins(:tags).where('tags.name in (?)', tags).group('notes.id').preload(:tags)
 
-    notes = @user.notes.recent.includes(:tags).first(count)
-    response_text = "Last #{count} notes:\n\n"
+    response_text = "I found #{notes.to_a.count} notes:\n\n"
 
     notes.each do |note|
       response_text << "id: #{note.id}\n"
@@ -16,6 +15,6 @@ class LastCommand < BaseCommand
       response_text << "\n#{'░'*20}\n" unless note == notes[-1]
     end
 
-    respond_with(text: response_text.html_safe, parse_mode: 'HTML', disable_web_page_preview: true)
+    respond_with(text: response_text, parse_mode: 'HTML', disable_web_page_preview: true)
   end
 end

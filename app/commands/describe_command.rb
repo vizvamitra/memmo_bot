@@ -3,7 +3,7 @@ class DescribeCommand < BaseCommand
     if !note
       response_text = "Please create at least one note first"
     else
-      tags = message.entities.select{|e| e.type == 'hashtag'}
+      tags = message.entities.hashtags
       name = message.text.sub(/^\/[^\s]+\s?/, '').gsub(/#[^\s]+\s/, '')
 
       response_text = update_note(tags, name) ? "Success" : "Failure =(. Sorry for that."

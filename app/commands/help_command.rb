@@ -15,6 +15,9 @@ class HelpCommand < BaseCommand
       /last [number] - Show given number of recently added notes
       Example: /last 5
 
+      /get [tags] - Get all notes with given tags
+      Example: /get #url #example
+
       /tags - Show list of existing tags
       Example: /tags
 

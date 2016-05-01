@@ -14,8 +14,9 @@ class Message
   private
 
   def build_entities(raw_entities)
-    raw_entities.map do |raw_entity|
+    entities_array = raw_entities.map do |raw_entity|
       EntityBuilder.new(text, raw_entity).build
     end
+    EntityCollection.new(entities_array)
   end
 end
