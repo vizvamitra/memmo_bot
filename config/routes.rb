@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   post 'webhook/:token', to: 'webhook#create'
+  post 'webhook/debug/:token', to: 'webhook#debug'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
