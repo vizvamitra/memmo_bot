@@ -1,15 +1,10 @@
 class DeleteCommand < BaseCommand
   def run
-    id = message.text.gsub(/^\/[^\s]+\s?/, '').to_i
+    id = message.text.gsub(/^\/[^\s_]+[\s_]?/, '').to_i
     note = user.notes.find_by(id: id)
 
-    if note
-      note.destroy
-      response_text = "Success"
-    else
-      response_text = "Note not found"
-    end
+    response_text = i18n( note&.destroy ? :success : :failure )
 
-    respond_with({text: response_text})
+    respond_with( text: response_text )
   end
 end

@@ -1,17 +1,11 @@
 class AddCommand < BaseCommand
   def run
     note = user.notes.new( text: message.text.sub(/^\/[^\s]+\s?/, '') )
+
     response_text = if note.save
-      <<-TEXT.gsub(/^ +/, '')
-        Note successfully saved with id #{note.id}.
-
-        Please use /describe command if you want to attach tags and/or description.
-        Example: /describe #read #romantic Book about love
-
-        Created this note by mistake? Use the following command to delete it: /delete #{note.id}
-      TEXT
+      i18n(:success, note_id: 1)
     else
-      "There were errors: #{note.errors.full_messages}"
+      i18n(:failure, errors: note.errors.full_messages.join("\n"))
     end
 
     respond_with(text: response_text)

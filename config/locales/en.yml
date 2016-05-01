@@ -20,4 +20,78 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  commands:
+    add:
+      success: |
+        Note successfully saved with id %{note_id}.
+
+        Please use /describe command if you want to attach tags and/or description.
+        Example: /describe #read #romantic Book about love
+
+        Created this note by mistake? Use the following command to delete it: /delete_%{note_id}
+      failure: |
+        There were errors:
+        %{errors}
+    delete:
+      success: Success
+      failure: Note not found
+    describe:
+      success: Success
+      failure: Failure =(. Sorry for that.
+      no_notes: Please create at least one note first
+    get:
+      caption: "I found %{notes_count} notes:"
+      delete: "Delete this note: /delete_%{note_id}"
+    help:
+      message: |
+        My name is Memmo and I can memorize some notes for you.
+
+        Here is the list of commands that I understand:
+
+        /add [text] - Create a new note
+        Example: /add http://example.com/blah-blah
+        Also you can simply enter any text without a command, I will assume you want to add it as a note
+
+        /describe [tags] [name] - Describe last created note
+        Example: /describe #url #example Example website
+
+        /last [number] - Show given number of recently added notes
+        Example: /last 5
+
+        /get [tags] - Get all notes with given tags
+        Example: /get #url #example
+
+        /tags - Show list of existing tags
+        Example: /tags
+
+        Hope you enjoy using me. Please write to my creator Dmitrii Krasnov at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
+    last:
+      caption: "Last %{count} notes:"
+      delete: "Delete this note: /delete_%{note_id}"
+    start:
+      message: |
+        Greetings, my dear new user! ^_^
+
+        My name is Memmo and I can memorize some notes for you.
+
+        Here is the list of commands that I understand:
+
+        /add [text] - Create a new note
+        Example: /add http://example.com/blah-blah
+        Also you can simply enter any text without a command, I will assume you want to add it as a note
+
+        /describe [tags] [name] - Describe last created note
+        Example: /describe #url #example Example website
+
+        /last [number] - Show given number of recently added notes
+        Example: /last 5
+
+        /get [tags] - Get all notes with given tags
+        Example: /get #url #example
+
+        /tags - Show list of existing tags
+        Example: /tags
+
+        Hope you'll enjoy using me. Please write to my creator Dmitrii Krasnov at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
+    tags:
+      caption: "Existing tags:"
