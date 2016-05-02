@@ -42,14 +42,6 @@ class BaseCommand
       if reply_to_message_id && !reply_to_message_id.is_a?(Fixnum)
         raise ArgumentError, "Unexpected value of reply_to_message_id: #{reply_to_message_id}. Fixnum expected."
       end
-
-      allowed_reply_markups = [
-        'InlineKeyboardMarkup', 'ReplyKeyboardMarkup',
-        'ReplyKeyboardHide', 'ForceReply'
-      ]
-      if reply_markup && !allowed_reply_markups.include?(reply_markup)
-        raise ArgumentError, "Unexpected value of reply_markup: #{reply_markup}. Allowed values: #{allowed_reply_markups}."
-      end
     end
   end
 end

@@ -24,6 +24,7 @@ class BaseCommand
   end
 
   def i18n(key, args={})
+    args.merge!(locale: user.language)
     I18n.t( "commands.#{command_name}.#{key}", args )
   end
 end
