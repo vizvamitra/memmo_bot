@@ -26,7 +26,7 @@ class Message::EntityBuilder
     body = text[entity.offset, entity.length]
 
     case entity.type
-    when 'bot_command' then body.sub(/^\//, '')
+    when 'bot_command' then body.sub(/^\//, '').sub(/__.+/, '')
     when 'hashtag' then body.sub(/^#/, '')
     else body
     end

@@ -28,7 +28,7 @@ en:
         Please use /describe command if you want to attach tags and/or description.
         Example: /describe #read #romantic Book about love
 
-        Created this note by mistake? Use the following command to delete it: /delete_%{note_id}
+        Created this note by mistake? Use the following command to delete it: /delete__%{note_id}
       failure: |
         There were errors:
         %{errors}
@@ -41,7 +41,7 @@ en:
       no_notes: Please create at least one note first
     get:
       caption: "I found %{notes_count} notes:"
-      delete: "Delete this note: /delete_%{note_id}"
+      delete: "Delete this note: /delete__%{note_id}"
     help:
       message: |
         My name is Memmo and I can memorize some notes for you.
@@ -67,7 +67,7 @@ en:
         Hope you enjoy using me. Please write to my creator Dmitrii Krasnov at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
     last:
       caption: "Last %{count} notes:"
-      delete: "Delete this note: /delete_%{note_id}"
+      delete: "Delete this note: /delete__%{note_id}"
     start:
       message: |
         Greetings, my dear new user! ^_^

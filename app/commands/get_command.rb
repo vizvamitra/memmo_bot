@@ -3,7 +3,7 @@ class GetCommand < BaseCommand
     tags = message.entities.hashtags.map(&:body)
     notes = user.notes.recent.joins(:tags).where('tags.name in (?)', tags).group('notes.id').preload(:tags)
 
-    response_text = "#{ i18n(:caption, notes_count: notes.to_a.tount) }\n\n"
+    response_text = "#{ i18n(:caption, notes_count: notes.to_a.count) }\n\n"
 
     notes.each do |note|
       response_text << "<strong>#{note.name}</strong>\n" if note.name
