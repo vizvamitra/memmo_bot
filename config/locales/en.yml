@@ -105,5 +105,5 @@ en:
       caption: "Existing tags:"
   callbacks:
     change_language:
-      success: "So your language is %{language}?"
+      success: "Cool, I like %{language}!"
       failure: Failure. Sorry for that.. Т_Т

@@ -84,5 +84,5 @@ ru:
       caption: "Существующие тэги:"
   callbacks:
     change_language:
-      success: "Ааа, так твой язык %{language}?"
+      success: Здорово, люблю %{language}!
       failure: Произошла ошибка. Извини.. Т_Т
