@@ -12,7 +12,7 @@ class LastCommand < BaseCommand
       response_text << "#{tags_string}\n" if tags_string.length > 0
 
       response_text << "\n#{note.text}\n"
-      response_text << i18n(:delete, note_id: note.id)
+      response_text << "<em>#{i18n(:delete)}</em> /delete__#{note.id}"
       response_text << "\n\n" unless note == notes[-1]
     end
 

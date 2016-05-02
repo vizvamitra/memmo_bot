@@ -41,7 +41,7 @@ en:
       no_notes: Please create at least one note first
     get:
       caption: "I found %{notes_count} notes:"
-      delete: "Delete this note: /delete__%{note_id}"
+      delete: "Delete this note:"
     help:
       message: |
         My name is Memmo and I can memorize some notes for you.
@@ -72,7 +72,7 @@ en:
       select_language: In which language I should to speak with your?
     last:
       caption: "Last %{count} notes:"
-      delete: "Delete this note: /delete__%{note_id}"
+      delete: "Delete this note:"
     start:
       message: |
         Greetings, my new user! ^_^
