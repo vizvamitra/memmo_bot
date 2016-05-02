@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  has_secure_token :callback_token
-
   KNOWN_LANGUAGES = ['en', 'ru']
 
   has_many :notes

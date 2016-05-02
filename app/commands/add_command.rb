@@ -3,7 +3,7 @@ class AddCommand < BaseCommand
     note = user.notes.new( text: message.text.sub(/^\/[^\s]+\s?/, '') )
 
     response_text = if note.save
-      i18n(:success, note_id: 1)
+      i18n(:success, note_id: note.id)
     else
       i18n(:failure, errors: note.errors.full_messages.join("\n"))
     end

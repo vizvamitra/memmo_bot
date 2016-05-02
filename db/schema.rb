@@ -41,10 +41,9 @@ ActiveRecord::Schema.define(version: 20160502013728) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "telegram_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "callback_token"
-    t.string   "language",       default: "en"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "language",    default: "en"
     t.index ["telegram_id"], name: "index_users_on_telegram_id", unique: true, using: :btree
   end
 
