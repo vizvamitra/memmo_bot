@@ -29,7 +29,9 @@ module MemmoBot
     config.time_zone = 'Europe/Moscow'
 
     config.autoload_paths += [
-      Rails.root.join('app/commands')
+      Rails.root.join('app/commands'),
+      Rails.root.join('app/callbacks'),
+      Rails.root.join('app/dispatchers'),
     ]
   end
 end

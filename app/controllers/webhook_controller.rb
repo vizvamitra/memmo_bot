@@ -2,8 +2,12 @@ class WebhookController < ApplicationController
   before_action :validate_token
 
   def create
-    command.run
-    render json: command.response
+    event = JSON.parse(request.body.read)
+    result = EventDispatcher.new(event).dispatch
+    render json: result
+  rescue BaseDispatcher::DispatchError => e
+    logger.warn(e.message)
+    head 200 # we don't want telegram to retry unknown events
   end
 
   def debug
@@ -14,26 +18,6 @@ class WebhookController < ApplicationController
 
   def validate_token
     head 403 if params[:token] != Rails.application.secrets.webhook_token
-  end
-
-  def message
-    @message ||= begin
-      raw_message = JSON.parse(request.body.read)['message']
-      Message.new(raw_message)
-    end
-  end
-
-  def user
-    @user ||= User.find_or_create_by(telegram_id: message.from.id)
-  end
-
-  def command
-    @command ||= begin
-      command = message.entities.find{|e| e.type == 'bot_command'}
-      command_name = command ? command.body : 'add'
-      command_class = "#{command_name.camelize.capitalize}Command".constantize
-      command_class.new(user, message)
-    end
   end
 
   # temporary

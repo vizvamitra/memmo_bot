@@ -23,7 +23,7 @@ en:
   commands:
     add:
       success: |
-        Note successfully saved with id %{note_id}.
+        Note successfully saved.
 
         Please use /describe command if you want to attach tags and/or description.
         Example: /describe #read #romantic Book about love
@@ -37,7 +37,7 @@ en:
       failure: Note not found
     describe:
       success: Success
-      failure: Failure =(. Sorry for that.
+      failure: Failure. Sorry for that.. Т_Т
       no_notes: Please create at least one note first
     get:
       caption: "I found %{notes_count} notes:"
@@ -64,13 +64,18 @@ en:
         /tags - Show list of existing tags
         Example: /tags
 
-        Hope you enjoy using me. Please write to my creator Dmitrii Krasnov at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
+        /language - Change language
+        Example: /language
+
+        Hope you enjoy using me. Please write to my creator Dmitrii at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
+    language:
+      select_language: In which language I should to speak with your?
     last:
       caption: "Last %{count} notes:"
       delete: "Delete this note: /delete__%{note_id}"
     start:
       message: |
-        Greetings, my dear new user! ^_^
+        Greetings, my new user! ^_^
 
         My name is Memmo and I can memorize some notes for you.
 
@@ -92,6 +97,13 @@ en:
         /tags - Show list of existing tags
         Example: /tags
 
-        Hope you'll enjoy using me. Please write to my creator Dmitrii Krasnov at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
+        /language - Change language
+        Example: /language
+
+        Hope you'll enjoy using me. Please write to my creator Dmitrii at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
     tags:
       caption: "Existing tags:"
+  callbacks:
+    change_language:
+      success: "So your language is %{language}?"
+      failure: Failure. Sorry for that.. Т_Т

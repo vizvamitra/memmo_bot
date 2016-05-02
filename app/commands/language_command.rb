@@ -1,9 +1,4 @@
 class LanguageCommand < BaseCommand
-  LANGUAGES = {
-    'English' => 'en',
-    'Русский' => 'ru'
-  }
-
   def run
     respond_with({
       text: i18n(:select_language),
@@ -14,8 +9,15 @@ class LanguageCommand < BaseCommand
   private
 
   def build_inline_keyboard
-    LANGUAGES.
-      map{|label, lang| {text: label, callback_data: lang} }.
-      in_groups(2)
+    SUPPORTED_LANGUAGES.map do |lang|
+      label = I18n.t("languages.#{lang}")
+      {
+        text: label,
+        callback_data: Marshal.dump(
+          m: "change_language",
+          p: { language: lang }
+        )
+      }
+    end.in_groups(2)
   end
 end
