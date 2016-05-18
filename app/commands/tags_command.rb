@@ -6,7 +6,7 @@ class TagsCommand < BaseCommand
     response_text = "#{i18n(:caption)}\n\n"
 
     grouped_tags.each do |first_letter, tags|
-      response_text << "<strong>#{first_letter.upcase}</strong>\n"
+      response_text << "<strong>#{first_letter.mb_chars.upcase}</strong>\n"
       response_text << tags.sort_by(&:name).map{|t| "##{t.name}"}.join(' ')
 
       response_text << "\n\n" unless first_letter == grouped_tags.keys[-1]
