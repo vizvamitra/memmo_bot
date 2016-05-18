@@ -4,7 +4,7 @@ class DescribeCommand < BaseCommand
       response_text = i18n(:no_notes)
     else
       tags = message.entities.hashtags.map(&:body)
-      name = message.text.sub(/^\/[^\s]+\s?/, '').gsub(/#[^\s]+\s/, '')
+      name = message.text.sub(/^\/[^\s]+\s?/, '').gsub(/#[^\s]+\s?/, '')
 
       response_text = i18n(update_note(tags, name) ? :success : :failure)
     end
