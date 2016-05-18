@@ -7,12 +7,12 @@ class LastCommand < BaseCommand
     response_text = "#{ i18n(:caption, count: count) }\n\n"
 
     notes.each do |note|
+      response_text << "\xF0\x9F\x93\x84 "
       response_text << "<strong>#{note.name}</strong>\n" if note.name
       tags_string = note.tags.map{|tag| "##{tag.name}"}.join(' ')
       response_text << "#{tags_string}\n" if tags_string.length > 0
 
-      response_text << "\n#{note.text}\n"
-      response_text << "<em>#{i18n(:delete)}</em> /delete__#{note.id}"
+      response_text << "#{note.text}\n"
       response_text << "\n\n" unless note == notes[-1]
     end
 
