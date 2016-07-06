@@ -1,4 +1,8 @@
 class BaseCommand
+  include ActionView::Helpers::TextHelper
+
+  MAX_TEXT_LENGTH = 200
+
   attr_reader :response
 
   def initialize(user, message)
@@ -26,5 +30,13 @@ class BaseCommand
   def i18n(key, args={})
     args.merge!(locale: user.language)
     I18n.t( "commands.#{command_name}.#{key}", args )
+  end
+
+  def text_too_long?(text)
+    text.length > MAX_TEXT_LENGTH
+  end
+
+  def truncated(text)
+    truncate(text, length: MAX_TEXT_LENGTH, separator: ' ')
   end
 end

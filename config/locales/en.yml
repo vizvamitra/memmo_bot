@@ -39,9 +39,10 @@ en:
       success: Success
       failure: Failure. Sorry for that.. Т_Т
       no_notes: Please create at least one note first
-    get:
+    find:
       caption: "I found %{notes_count} notes:"
       delete: "Delete this note:"
+      show: "Show full message:"
     help:
       message: |
         My name is Memmo and I can memorize some notes for you.
@@ -70,9 +71,10 @@ en:
         Hope you enjoy using me. Please write to my creator Dmitrii at vizvamitra@gmail.com if you have any suggestions or (Oh no!) encountered a bug.
     language:
       select_language: In which language I should to speak with your?
-    last:
-      caption: "Last %{count} notes:"
+    list:
+      caption: "Recent notes:"
       delete: "Delete this note:"
+      show: "Show full message:"
     start:
       message: |
         Greetings, my new user! ^_^
